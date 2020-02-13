@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const arr = [1,2,3];
+        const arr1 = ['red', 'pink', 'green', 'yellow', 'purple'];
+        function createIterator(items) {
+            let i = 0;  // 相当于一个指针，闭包
+            return {
+                // 具有next方法
+                next() {
+                    // 调用返回结果对象
+                    return {
+                        value: items[i],
+                        done: i++ >= items.length
+                    }
+                }
+
+            }
+        }
+        const iterator = createIterator(arr);
+        const iterator1 = createIterator(arr1);
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log("==========")
+        console.log(iterator1.next());
+        console.log(iterator1.next());
+        console.log(iterator1.next());
+        console.log(iterator1.next());
+        console.log(iterator1.next());
+        console.log(iterator1.next());
+    </script>
+</body>
+</html>

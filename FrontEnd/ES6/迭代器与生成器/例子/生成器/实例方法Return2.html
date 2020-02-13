@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function* createIterator() {
+            yield 1;
+            yield 2;
+            yield 5;
+            yield 8;
+            yield 0;
+            return 3;
+        }
+        const generator = createIterator();
+        const arr = [...generator]
+        console.log(arr)
+    </script>
+
+</body>
+
+</html>

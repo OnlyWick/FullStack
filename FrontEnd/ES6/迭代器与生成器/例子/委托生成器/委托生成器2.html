@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function* createNumberIterator() {
+            yield 1;
+            yield 2;
+            return 3;
+        }
+        function* createRepeatingIterator(count) {
+            for(let i = 1; i <= count; i ++) {
+                yield `repeat${i}`;
+            }
+        }
+        function* createCombinedIterator() {
+            let result = yield *createNumberIterator();
+            yield *createRepeatingIterator(result);
+        }
+
+        const generator = createCombinedIterator();
+        console.log(generator.next());
+        console.log(generator.next());
+        console.log(generator.next());
+        console.log(generator.next());
+        console.log(generator.next());
+        console.log(generator.next());
+    </script>
+
+
+</body>
+</html>

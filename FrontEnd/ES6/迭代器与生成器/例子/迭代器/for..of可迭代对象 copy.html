@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const obj = {
+            name: "Wick",
+            age: 20,
+            sex: "male",
+            [Symbol.iterator]() {
+                let keys = Object.keys(this);
+                let index = 0;  // 指针
+                const _this = this;
+                return {
+                    next() {
+                        const key = keys[index++];
+                        const value = _this[key];
+                        return {
+                            value: {
+                                key,
+                                value,
+                            },
+                            done: index > keys.length
+                        }
+                    }
+                }
+            }
+        }
+        for (const iterator of obj) {
+            console.log(iterator)
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function* gen1() {
+            yield 1;
+            yield 0;
+        }
+        function* gen2() {
+            yield 0;
+            yield 8;
+        }
+        function* fgen() {
+            yield *gen1();
+            yield *gen2();
+            yield 6;
+            yield true;
+        }
+        const generator = fgen();
+    </script>
+
+</body>
+</html>

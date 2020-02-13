@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const obj = {
+            name: "Wick",
+            age: 20,
+            *[Symbol.iterator]() {
+                for(let key of Object.keys(this)) {
+                    yield {key, value: this[key]}
+                }
+            }
+        }
+        for(let key of obj) {
+            console.log(key)
+        }
+    </script>
+
+
+</body>
+</html>

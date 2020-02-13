@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const colors = ['red', 'pink', 'blue'];
+        const numSet = new Set([123, 456, 789]);
+        const myInfoMap = new Map();
+        myInfoMap.set("name", "Wick");
+        myInfoMap.set("sex", "male");
+        // 分割线
+        console.log("===Array===")
+        for(const entry of colors.keys()) {
+            console.log(entry)
+        }
+        console.log("===Set===")
+        for(const entry of numSet.keys()) {
+            console.log(entry)
+        }
+        console.log("===Map===")
+        for(const entry of myInfoMap.keys()) {
+            console.log(entry)
+        }
+    </script>
+    
+</body>
+
+</html>

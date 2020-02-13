@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const arr = [
+            1,
+            [2, 3, 4, [5, 6, [7, 8]]],
+            [9,10,
+                [11,
+                    [12,[13]]
+                ]
+            ]
+        ];
+
+        function* createArrayIterator(arr) {
+            for (const item of arr) {
+                if (Array.isArray(item)) {
+                    yield* createArrayIterator(item);   // 递归
+                } else {
+                    yield item;
+                }
+            }
+        }
+        function flat(arr) {
+            const tempArr = [];
+            for (const value of createArrayIterator(arr)) {
+                tempArr.push(value)
+            }
+            return tempArr;
+        }
+        console.log(flat(arr))
+    </script>
+
+</body>
+
+</html>
