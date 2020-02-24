@@ -329,7 +329,7 @@ function spawn(genF) {
 
 # 参考文章
 
-[阮一峰async、await]()
+[阮一峰async、await](https://es6.ruanyifeng.com/#docs/async)
 
 
 
