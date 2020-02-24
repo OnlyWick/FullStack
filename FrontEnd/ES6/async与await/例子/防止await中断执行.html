@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        async function test(isError) {
+            if(isError) {
+                throw new Error("报错")
+            } else {
+                return 666
+            }
+        }
+        async function hi() {
+            await test(true).catch(error => {console.log(error)})
+            console.log(await test(false));
+        }
+        hi();
+    </script>
+
+
+</body>
+</html>
+
+<!-- 
+<script>
+    async function test(isError) {
+        if(isError) {
+            throw new Error("报错")
+        } else {
+            return 666
+        }
+    }
+    async function hi() {
+        try {
+            await test(true)
+        } catch (error) {
+            // some code...    
+        }
+        console.log(await test(false));
+    }
+    hi();
+</script>
+ -->

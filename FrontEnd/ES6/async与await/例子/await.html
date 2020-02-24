@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // async function mayi() {
+        //     return "蚂蚁雅黑";
+        // }
+        // async function test() {
+        //     console.log(await mayi());
+        // }
+        // test();
+
+        function mayi() {
+            return new Promise((resolve, reject) => {
+                resolve("蚂蚁雅黑")
+            })
+        }
+        function test() {
+            return new Promise((resolve, reject) => {
+                mayi().then(res => {
+                    console.log(res)
+                })
+            })
+        }
+        test();
+
+    </script>
+
+</body>
+
+</html>

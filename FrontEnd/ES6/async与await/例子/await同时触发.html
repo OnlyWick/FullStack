@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function watchTV() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.log("看电视")
+                    resolve("看电视")
+                }, 1000)
+            })
+        }
+        function eat() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.log("吃饭")
+                    resolve("吃饭")
+                }, 1500)
+            })
+        }
+        async function test() {
+            let beginTime = Date.now()
+            let watchTVPro = watchTV();
+            let eatPro = eat();
+            await watchTVPro;
+            await eatPro;
+            let endTime = Date.now();
+            console.log("耗时：", endTime - beginTime);
+        }
+        test()
+    </script>
+
+
+
+</body>
+
+</html>
+
+
+<!-- <script>
+    function watchTV() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve("看电视")
+            }, 1000)
+        })    
+    }
+    function eat() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve("吃饭")
+            }, 1500)
+        })    
+    }
+    async function test() {
+        let beginTime = Date.now()
+        await eat();
+        await watchTV();
+        let endTime = Date.now();
+        console.log("耗时：", endTime - beginTime);
+    }
+    test()
+</script> -->
+
+<!-- <script>
+    function watchTV() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                console.log("看电视")
+                resolve("看电视")
+            }, 1000)
+        })
+    }
+    function eat() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                console.log("吃饭")
+                resolve("吃饭")
+            }, 1500)
+        })
+    }
+    async function test() {
+        let beginTime = Date.now()
+        await Promise.all([eat(), watchTV()])
+        let endTime = Date.now();
+        console.log("耗时：", endTime - beginTime);
+    }
+    test()
+</script> -->

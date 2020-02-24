@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function test(isError) {
+            if(isError) {
+                throw new Error("test函数出错")
+            } else {
+                return Math.random();
+            }
+        }
+        async function hi() {
+            console.log("未报错", await test(false));
+            console.log("报错", await test(true));
+            console.log("动不了", await test(false));
+        }
+        hi();
+    </script>
+</body>
+
+</html>
+<!-- <script>
+    function timeout(delay) {
+        return new Promise(resolve => {
+            setTimeout(resolve, delay);
+        });
+    }
+    async function test() {
+        console.log("开始")
+        await timeout(500);
+        console.log("此时过了500毫秒")
+        return "666，提前结束了"
+        await timeout(2000);
+        console.log("又过了2000毫秒")
+        
+    }
+    let pro = test()
+    console.log(pro)
+    pro.then(res => {
+        console.log(res)
+    }).catch(error => {
+        console.log(error)
+    })
+</script> -->
+
+<!-- 
+<script>
+function timeout(delay) {
+    return new Promise(resolve => {
+        setTimeout(resolve, delay);
+    });
+}
+async function test() {
+    console.log("开始")
+    await timeout(500);
+    console.log("此时过了500毫秒")
+    throw "我知道错了！"
+    await timeout(2000);
+    console.log("又过了2000毫秒")
+
+}
+let pro = test()
+console.log(pro)
+pro.then(res => {
+    console.log(res)
+}).catch(error => {
+    console.log(error)
+})
+</script>
+ -->

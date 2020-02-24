@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function talkOver() {
+            return new Promise(resolve => {
+                console.log("女神：我感冒了")
+                console.log("我：多喝热水")
+                setTimeout(resolve, 1500)
+            })
+        }
+        async function awaitGoddess() {
+            let result = await talkOver();
+            if(!result) {
+                console.log("1.5s后，女神无回复")
+                console.log("我：那你先忙，我先去敲代码了")
+            }else {
+                console.log(`女神回复：${result}`);
+                console.log("我：行，那你去忙吧，我去敲代码了")
+            }
+        }
+        awaitGoddess();
+    </script>
+
+</body>
+
+</html>
+<!-- <script>
+    function talkOver() {
+        return new Promise(resolve => {
+            console.log("女神：我感冒了")
+            console.log("我：多喝热水")
+            setTimeout(() => {
+                resolve("好，我有点事，先不聊了");
+            }, 1500)
+        })
+    }
+    async function awaitGoddess() {
+        let result = await talkOver();
+        console.log(`女神回复：${result}`);
+        console.log("我：好，那我去敲代码了")
+    }
+    awaitGoddess();
+</script> -->

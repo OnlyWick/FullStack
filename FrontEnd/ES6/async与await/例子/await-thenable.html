@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class Sleep {
+            constructor(delay) {
+                this.delay = delay;
+            }
+            then(resolve, reject) {
+                const beginTime = Date.now();
+                setTimeout(() =>{
+                    resolve(Date.now() - beginTime);
+                }, this.delay)
+            }
+        }
+        (async () => {
+            let sleepTime = await new Sleep(1000);
+            console.log(`延迟了${sleepTime}毫秒`)
+        })()
+    </script>
+
+</body>
+</html>

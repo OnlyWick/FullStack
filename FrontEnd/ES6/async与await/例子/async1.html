@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        async function test() {
+            return 123;
+        }
+        console.log(test())
+        
+        /*
+            上面的代码相当于写成这样
+            function test() {
+                return new Promise((resolve, reject) => {
+                    resolve(123);
+                })
+            }        
+        */
+    </script>
+
+
+</body>
+</html>
