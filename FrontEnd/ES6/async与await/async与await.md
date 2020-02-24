@@ -1,3 +1,7 @@
+本文已收录至github：https://github.com/OnlyWick/FullStack
+
+如有错误，请及时指出！
+
 # 前置知识
 
 在阅读本文章前，你可能需要先了解以下知识
@@ -201,6 +205,84 @@ test();
 
 
 
+
+
+来康康这两道题的输出结果是啥吧
+
+一：
+
+```js
+function test() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const name = 123;
+            resolve(name);
+        })
+    })
+}
+async function a() {
+    let val = await test();
+    console.log(val)
+}
+a();
+```
+
+二：
+
+```js
+async function test() {
+    setTimeout(async () => {
+        const name = 123;
+        return name;
+    })
+}
+async function a() {
+    let val = await test();
+    console.log(val)
+}
+a();
+```
+
+下面为答案
+
+。
+
+。
+
+。
+
+。
+
+。
+
+。
+
+。
+
+。
+
+
+
+一：123
+
+自己new了Promise，然后通过setTimeout使用了resolve改变了返回的Promise状态，之后await就可以获取到test函数返回的Promise的状态数据
+
+![image-20200225011244711](async与await.assets/image-20200225011244711.png)
+
+
+
+二：undefined
+
+在`async`函数中，进行return，会把返回值作为返回的Promise的then的参数，下面这个setTimeout加不加`async`进行修饰都没什么影响，最后return的值只是给它的回调函数，跟外部没有半毛线关系
+
+![image-20200225011311131](async与await.assets/image-20200225011311131.png)
+
+
+
+
+
+
+
 # 语法
 
 ## 返回Promise对象
@@ -330,10 +412,6 @@ function spawn(genF) {
 # 参考文章
 
 [阮一峰async、await](https://es6.ruanyifeng.com/#docs/async)
-
-
-
-
 
 
 
