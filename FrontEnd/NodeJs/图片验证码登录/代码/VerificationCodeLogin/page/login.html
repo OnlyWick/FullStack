@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.2/axios.js"></script>
+    <script src="https://cdn.bootcss.com/qs/6.9.1/qs.min.js"></script>
+    <script src="https://cdn.bootcss.com/crypto-js/4.0.0/crypto-js.js"></script>
+    <script src="https://cdn.bootcss.com/crypto-js/4.0.0/aes.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,
+        body {
+            height: 100%;
+            background-color: rgb(39,174,96);
+            position: relative;
+        }
+        #app {
+            width: 300px;
+            height: 200px;
+            text-align: center;
+            position: absolute;
+            left: calc(50% - 150px);
+            top: calc(50% - 100px);
+        }
+        #app p label {
+            width: 80px;
+            text-align: right;
+            float: left;
+        }
+        #app p {
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        #app p input {
+            border-radius: 4px;
+            outline: none;
+            border: none;
+            font-size: 18px;
+            width: 180px;
+            padding: 4px 0px 4px 6px;
+            float: left;
+        }
+        #login {
+            width: 100px;
+            height: 30px;
+            outline: none;
+            border: none;
+            border-radius: 7px;
+            margin: 30px 0;
+        }
+        #app #code input {
+            width: 70px;
+            margin-right: 10px;
+        }
+        #code img {
+            float: left;
+            width: 100px;
+            cursor: pointer;
+        }
+        #login:active {
+            background-color: rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <p><label>用户名：</label><input type="text" ref="username" value="Wick"></p>
+    <p><label>密码：</label><input type="text" ref="password" value="123456"></p>
+    <p id="code">
+        <label>验证码：</label>
+        <input ref="codeValue" type="text">
+        <img @click="getCode" :src="codeImg" alt="">
+    </p>
+    <button id="login" @click="login">登录</button>
+</div>
+
+<script>
+    axios.defaults.baseURL = "http://localhost:10086";
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    axios.defaults.withCredentials = true;
+    axios.interceptors.request.use(config => {
+        return config;
+    })
+    const app = new Vue({
+        el: "#app",
+        data: {
+            codeImg: `http://localhost:10086/code?t=${new Date().getTime()}`
+        },
+        methods: {
+            getCode() {
+                this.codeImg = `http://localhost:10086/code?t=${new Date().getTime()}`;
+                this.$refs.codeValue.value = "";
+            },
+            login() {
+                let username = this.$refs.username.value;
+                let password = this.$refs.password.value;
+                let code = this.$refs.codeValue.value;
+                let data = {
+                    username,
+                    password: CryptoJS.AES.encrypt(password, username).toString(),   //密码加密
+                    code
+                }
+                axios.post("/login", Qs.stringify(data)).then(res => {
+                    alert(res.data.msg);
+                    if(res.data.success === "ok") {
+                        window.location = "/Home.html";
+                    }
+                })
+            }
+        }
+    });
+</script>
+
+</body>
+
+</html>
