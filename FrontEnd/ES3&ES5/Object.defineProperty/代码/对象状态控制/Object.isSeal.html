@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const obj = {
+            name: "Wick",
+            sex: "男"
+        };
+        Object.seal(obj);
+        console.log(Object.isSealed(obj));
+        // 禁止添加删除，也就是不可拓展了
+        console.log(Object.isExtensible(obj));
+
+    </script>
+
+</body>
+
+</html>

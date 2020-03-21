@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const obj = Object.defineProperties({}, {
+            // 不可枚举
+            name: {value: "Wick", enumerable: false},
+            // 可枚举
+            sex: {value: "男", enumerable: true}
+        });
+        // Object.keys读不到无法枚举的属性
+        console.log(Object.keys(obj))
+        // for...in读不到无法枚举的属性
+        for (const prop in obj) {
+            console.log(prop)
+        }
+        // Object.values读不到无法枚举的属性
+        console.log(Object.values(obj))
+    </script>
+
+</body>
+</html>

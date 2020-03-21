@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const obj = {
+            sex: "男"
+        }
+        Object.defineProperty(obj, "name", {
+            get() {
+                console.log("读取name属性，运行了get方法")
+                return obj.$name
+            },
+            set(value) {
+                console.log("设置name属性，运行了set方法", value)
+                obj.$name = value;
+            }
+        })
+
+        obj.name = 123;
+        console.log(obj.name)
+    </script>
+
+</body>
+
+</html>

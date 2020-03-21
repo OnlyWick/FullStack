@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const obj = {}
+        Object.defineProperty(obj, "name", {
+            value: "Wick"
+        });
+        Object.defineProperties(obj, {
+            sex: { value: "男" },
+        })
+        console.log(Object.getOwnPropertyDescriptor(obj, "name"))
+        console.log(Object.getOwnPropertyDescriptor(obj, "sex"))
+    </script>
+
+</body>
+
+</html>

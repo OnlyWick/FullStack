@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const obj = {
+            name: "Wick"
+        }
+        Object.freeze(obj);
+        // 使用了freeze
+        console.log(Object.isFrozen(obj));
+        // 无法添加、删除属性，相当于使用了seal
+        console.log(Object.isSealed(obj));
+        // 那肯定无法拓展
+        console.log(Object.isExtensible(obj));
+
+    </script>
+
+</body>
+</html>

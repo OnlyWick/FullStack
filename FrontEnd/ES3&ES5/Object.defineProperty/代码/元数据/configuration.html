@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const obj = Object.defineProperty({}, "name", {
+            value: "Wick",
+            // value、enumerable、writable、configurable都不可更改
+            configurable: false,
+            writable: false,
+            enumerable: false
+        })
+        // 以下代码都会报错：Cannot redefine property: name
+        Object.defineProperty(obj, "name", {
+            value: "123"
+        })
+        // Object.defineProperty(obj, "name", {
+        //     enumerable: true
+        // })
+        // Object.defineProperty(obj, "name", {
+        //     writable: true
+        // })
+        // Object.defineProperty(obj, "name", {
+        //     configurable: true
+        // })
+
+    </script>
+
+</body>
+</html>

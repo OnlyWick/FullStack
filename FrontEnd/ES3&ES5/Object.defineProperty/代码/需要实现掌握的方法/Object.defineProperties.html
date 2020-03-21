@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        const obj = {};
+        Object.defineProperty(obj, 'name', {
+            writable: true,
+            get: function() {
+                return 'hiahiahia'
+            }
+        })
+    </script>
+
+
+
+    <!-- <script>
+        const obj = {};
+        Object.defineProperty(obj, 'name', {
+            value: "Wick",
+            get: function() {
+                return 'hiahiahia'
+            }
+        })
+    </script> -->
+
+    <!-- <script>
+        const obj = Object.defineProperties({}, {
+            name: { value: "Emma Roberts", enumerable: true },
+            sex: { value: "女", enumerable: false },
+            isBeauty: { value: true },
+            talk: {
+                get: function () {
+                    return `${this.name}==${this.sex}==${this.isBeauty? "很好看": ""}`
+                }
+            }
+        })
+        console.log(obj.name)
+        console.log(obj.sex)
+        console.log(obj.talk)
+    </!--> -->
+
+</body>
+
+</html>

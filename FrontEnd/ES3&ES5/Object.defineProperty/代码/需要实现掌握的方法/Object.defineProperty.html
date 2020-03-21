@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const obj = {
+            name: "Wick"
+        }
+        // 修改
+        Object.defineProperty(obj, "name", {
+            value: "Emma Roberts"
+        })
+        // 创建
+        Object.defineProperty(obj, "sex", {
+            value: "女",
+            // ...其他描述符属性
+        })
+        console.log(obj)
+    </script>
+
+</body>
+
+</html>

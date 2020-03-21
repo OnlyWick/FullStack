@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const obj = {
+            name: "Wick",
+            sex: "男"
+        };
+        console.log(Object.getOwnPropertyDescriptor(obj, "name"));
+        Object.seal(obj);
+        console.log(Object.getOwnPropertyDescriptor(obj, "name"));
+    </script>
+
+
+    <!-- <script>
+        const obj = {
+            name: "Wick",
+            sex: "男"
+        };
+        Object.seal(obj);
+        delete obj.name;
+        // 不影响修改
+        obj.name = "Emma";
+        obj.sex = "女";
+        console.log(obj)
+
+    </script> -->
+
+    <!-- <script>
+        const obj = {
+            name: "Wick",
+            sex: "男"
+        };
+        Object.seal(obj);
+        console.log(delete obj.name)
+        obj.hobby = "write bug";
+        console.log(obj)
+
+    </script> -->
+
+</body>
+
+</html>
