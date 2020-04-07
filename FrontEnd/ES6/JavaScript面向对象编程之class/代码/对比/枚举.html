@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        class Demo {
+            xx = 123;
+            say() {
+                console.log("say")
+            }
+        }
+        Demo.prototype.ss = () => {
+            console.log("ss")
+        }
+        const obj = new Demo();
+        for (const key in obj) {
+            console.log(key)
+        }
+        
+    </script>
+
+
+
+    <!-- <script>
+        function Demo() {
+            this.xx = 123;
+            this.say = function() {
+                console.log("say")
+            }
+        }
+        Demo.prototype.ss = function() {
+            console.log("ss")
+        }
+        const obj = new Demo();
+        for (const key in obj) {
+            console.log(key)
+        }
+    </script> -->
+
+</body>
+</html>

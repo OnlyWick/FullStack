@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 父类
+        class BugEngineer {
+            // 该方法在类上
+            static biubiubiu() {
+                console.log("biubiubiu");
+            }
+            // 该方法在类的原型上
+            boomboomboom() {
+                console.log("boomboomboom");
+            }
+        }
+
+        // 子类
+        class Engineer extends BugEngineer {
+            static demo() {
+                super.biubiubiu();
+                super.boomboomboom();
+            }
+        }
+        console.dir(BugEngineer)
+        Engineer.demo();
+    </script>
+
+
+
+</body>
+
+</html>

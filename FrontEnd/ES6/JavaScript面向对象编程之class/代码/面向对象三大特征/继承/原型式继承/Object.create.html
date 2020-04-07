@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var person = {
+            name: "Wick",
+            friends: ["doubi", "xiaoming", "xiaohong"]
+        }
+        var p1 = Object.create(person);
+        var p2 = Object.create(person);
+        p1.friends.push("you");
+        console.log(p2.friends);
+    </script>
+
+    
+</body>
+
+</html>

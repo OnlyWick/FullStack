@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script>
+        class Test {}
+        // Test.call({});  // TypeError: Class constructor Test cannot be invoked without 'new'
+        new Test.call({});
+    </script>
+
+
+    <!-- <script>
+        function Master() {
+        }
+        function Test() {
+            console.log(this)
+        }
+        const master = new Master();
+        Test.call(master);
+    </script> -->
+
+</body>
+</html>

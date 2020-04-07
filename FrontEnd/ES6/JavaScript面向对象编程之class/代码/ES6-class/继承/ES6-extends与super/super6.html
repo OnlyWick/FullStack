@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 父类
+        class BugEngineer {
+            constructor() {
+                this.A = 2;
+            }
+            static biubiubiu() {
+                console.dir(this)
+                console.log(this.x)
+            }
+        }
+        // 子类
+        class Engineer extends BugEngineer {
+            constructor() {
+                super();
+                this.x = 10086;
+            }
+            static son() {
+                super.biubiubiu();
+            }
+        }
+        Engineer.x = 10010;
+        Engineer.son();
+    </script>
+
+
+</body>
+
+</html>

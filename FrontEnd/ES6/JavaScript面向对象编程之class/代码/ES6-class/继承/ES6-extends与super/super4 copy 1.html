@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 父类
+        class BugEngineer {
+            constructor() {
+                this.didadida = 123;
+                this.dududu = function () {
+                    console.log(13)
+                }
+                console.log(this)
+            }
+        }
+
+        // 子类
+        class Engineer extends BugEngineer {
+            constructor(name) {
+                super(name);
+                // 这里是作为一个对象
+                console.log(super.didadida);
+                console.log(super.dududu)
+            }
+        }
+        const wick = new Engineer("Wick");
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Person {
+            constructor(name, sex, hobby) {
+                this.name = name;
+                this.sex = sex;
+                this.hobby = hobby;
+            }
+            static isTall = true;
+            static eat() {
+                console.log(this.prototype)
+                console.log("人类会吃饭")
+            }
+            say() {
+                console.log("我叫" + this.name + ", 是个" + this.sex + "生，我就喜欢" + this.hobby);
+            }
+        }
+        // 只有类能访问
+        console.log(Person.isTall);
+        Person.eat();
+        const p1 = new Person("Wick", "男", "写Bug");
+        console.dir(p1)
+        // 实例对象无权访问
+        console.log(p1.isTall);
+        p1.eat();
+    </script>
+
+
+</body>
+
+</html>

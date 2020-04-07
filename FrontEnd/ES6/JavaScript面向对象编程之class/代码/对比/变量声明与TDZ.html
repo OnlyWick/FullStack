@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        console.log(Test);  // ReferenceError: Cannot access 'Test' before initialization
+        class Test {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+        console.log(window.Test);
+        class Test {    // SyntaxError: Identifier 'Test' has already been declared
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+    <!-- <script>
+        console.log(Test);
+        function Test(name) {
+            this.name = name;
+        }
+        console.log(window.Test);
+        function Test(name) {
+            this.doubi = name;
+        }
+        console.log(new Test("oooo"))
+    </script> -->
+
+
+</body>
+</html>

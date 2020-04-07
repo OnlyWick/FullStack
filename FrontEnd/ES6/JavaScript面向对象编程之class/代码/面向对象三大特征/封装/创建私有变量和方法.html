@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var BugEngineer = function (name, age) {
+            // 私有属性
+            var studyHours = 0;
+            // 私有方法
+            function study() {
+                console.log(`${this.name}开始学习写Bug`);
+                this.study ++;
+            }
+            // 特权方法
+            this.setName = function (name) {
+                this.name = name;
+            }
+            this.getName = function () {
+                return this.name;
+            }
+            this.setAge = function (age) {
+                this.age = age;
+            }
+            this.getAge = function () {
+                return this.age;
+            }
+            this.getHours = function() {
+                return studyHours;
+            }
+            // 对象公有方法
+            this.writeBug = function () {
+                console.log(`${this.name}开始写Bug`)
+                this.Bugs++;
+            }
+            // 对象公有属性
+            this.Bugs = 0;
+            // 构造器
+            this.setName(name);
+            this.setAge(age);
+        }
+        // 类静态公有属性(对象不能访问)
+        BugEngineer.position = "Bug Engineer";
+        // 类静态公有方法(对象不能访问)
+        BugEngineer.sleep = function () {
+            console.log("睡觉");
+        }
+        BugEngineer.prototype = {
+            // 公有属性
+            bugLanguage: "JavaScript",
+            // 公有方法
+            lookGirl: function () {
+                console.log("看小姐姐");
+            }
+        }
+
+        var wick = new BugEngineer("Wick", 20);
+        console.log(wick.studyHours);   // undefined
+        console.log(wick.study);    // undefined
+        console.log(wick.getHours());   // 0
+        console.log(wick.Bugs); // 0
+        console.log(wick.position); // undefined
+        console.log(BugEngineer.position);  // Bug Engineer
+        console.log(wick.bugLanguage); // JavaScript
+    </script>
+
+</body>
+
+</html>

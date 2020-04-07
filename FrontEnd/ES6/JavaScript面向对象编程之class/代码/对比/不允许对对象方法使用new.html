@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        class Test {
+            static Demo() {
+
+            }
+        }
+        Test.prototype.ss = function() {
+            console.log("D")
+        }
+        const obj = new Test();
+        const Demo = Test.Demo;
+        const obj1 = new Demo();
+    </script>
+
+
+    
+    <!-- <script>
+        function Test(name) {
+            this.name = name;
+            this.say = function(d) {
+                this.d = d;
+            }
+        }
+        const obj1 = new Test("Wick");
+        console.log(obj1);
+        // 保存say方法
+        const Say = obj1.say;
+        const obj2 = new Say("10086");
+        console.log(obj2)
+    </script> -->
+
+
+</body>
+</html>

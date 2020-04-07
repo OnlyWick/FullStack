@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function Liaomei() {
+            function zero() {
+                return "直男";
+            }
+            function one() {
+                return "还不错";
+            }
+            function two() {
+                return "还可以";
+            }
+            function three() {
+                return "有点渣";
+            }
+            function four() {
+                return "渣男";
+            }
+            var length = arguments.length;
+            switch (length) {
+                case 0:
+                    return zero();
+                case 1:
+                    return one();
+                case 2:
+                    return two();
+                case 3:
+                    return three();
+                case 4:
+                    return four();
+            }
+        }
+        console.log(Liaomei());
+        console.log(Liaomei(1));
+        console.log(Liaomei(1, 2));
+        console.log(Liaomei(1, 2, 3));
+        console.log(Liaomei(1, 2, 3, 4));
+    </script>
+
+</body>
+
+</html>

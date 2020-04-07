@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function exercise() {
+            for (let i = 0; i < this.length; i++) {
+                this.weight--;
+            }
+        }
+        class Person {
+            length = 10;
+            constructor(name, weight) {
+                this.name = name;
+                this.weight = weight;
+            }
+            loseWeight() {
+                exercise.call(this);
+                console.log(`啊,我从${this.weight + this.length}斤瘦到${this.weight}斤了`);
+            }
+        }
+        const p1 = new Person("Wick", 135);
+        p1.loseWeight();
+    </script>
+
+</body>
+
+</html>

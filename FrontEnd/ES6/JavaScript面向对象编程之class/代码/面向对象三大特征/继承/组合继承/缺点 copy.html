@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function SuperType(name) {
+            console.log("该方法被执行")
+            this.name = name;
+            this.colors = ["red", "blue", "green"];
+        }
+        // 原型方法
+        SuperType.prototype.sayName = function() {
+            console.log(this.name);
+        }
+
+        function SubType(name, age) {
+            SuperType.call(this, name); // 第二次调用
+            this.age = age;
+        }
+        // 继承方法
+        SubType.prototype = new SuperType();    // 第一次调用
+
+        SubType.prototype.sayAge = function() {
+            console.log(this.age);
+        }
+        var sub1 = new SubType("Wick", 20);
+        console.log(sub1)
+    </script>
+    
+</body>
+</html>

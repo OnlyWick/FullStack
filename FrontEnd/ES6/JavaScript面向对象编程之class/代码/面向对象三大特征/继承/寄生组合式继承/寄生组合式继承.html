@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function inhertPrototype(subType, superType) {
+            var prototype = Object.create(superType.prototype);
+            prototype.constructor = subType;
+            subType.prototype = prototype;
+        }
+        function SuperType(name) {
+            console.log("该方法被执行")
+            this.name = name;
+            this.colors = ["red", "blue", "green"];
+        }
+        SuperType.prototype.sayName = function () {
+            console.log(this.name);
+        }
+        function SubType(name, age) {
+            SuperType.call(this, name);
+            this.age = age;
+        }
+        inhertPrototype(SubType, SuperType);
+        SubType.prototype.sayAge = function() {
+            console.log(this.age)
+        }
+        var p1 = new SubType("Wick", 18);
+        p1.sayName();
+        p1.sayAge();
+    </script>
+
+
+</body>
+
+</html>

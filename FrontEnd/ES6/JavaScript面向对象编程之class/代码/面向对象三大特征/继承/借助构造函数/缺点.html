@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function SuperType(name) {
+            this.name = name;
+            this.sayHi = function() {
+                console.log("Hi")
+            }
+        }
+        function SubType(name) {
+            SuperType.call(this, name);
+        }
+        var sub1 = new SubType("Wick");
+        var sub2 = new SubType("xiaoming");
+        console.log(sub1.sayHi === sub2.sayHi);
+    </script>
+    
+</body>
+</html>

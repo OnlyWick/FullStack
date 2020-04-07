@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class Person {
+            constructor(name, sex, hobby) {
+                this.name = name;
+                this.sex = sex;
+                this.hobby = hobby;
+            }
+            say() {
+                console.log("我叫" + this.name + ", 是个" + this.sex + "生，我就喜欢" + this.hobby);
+            }
+        }
+        console.dir(Person);
+        console.log("====Wick的华丽分割线====");
+        console.log(Person.name);
+        console.log(Person.prototype);
+        console.log(Person.length);
+        console.log("====Wick的华丽分割线====");
+        // 进行修改
+        Person.name = "Animal";
+        Person.prototype = {};
+        Person.length = 10086;
+        // 然并卵
+        console.log(Person.name);
+        console.log(Person.prototype);
+        console.log(Person.length);
+    </script>
+
+</body>
+</html>

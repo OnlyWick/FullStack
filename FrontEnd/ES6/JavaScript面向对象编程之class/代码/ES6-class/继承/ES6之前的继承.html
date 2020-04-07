@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 父类
+        function BugEngineer(name) {
+            // 面向抽象编程
+            if (new.target === BugEngineer) {
+                throw new Error("该类为抽象类，您不能直接调用");
+            }
+            this.name = name;
+        }
+
+        BugEngineer.prototype.writeBug = function () {
+            console.log(`${this.name}开始写Bug啦`);
+        }
+        // 子类
+        function Engineer(name) {
+            BugEngineer.call(this, name);
+        }
+
+        // 更改子类原型
+        Engineer.prototype = Object.create(BugEngineer.prototype);
+        // 更改子类构造函数
+        Engineer.prototype.constructor = BugEngineer;
+
+        const wick = new Engineer("wick");
+        console.log(wick)
+        wick.writeBug();
+        console.log(wick instanceof Engineer);
+        console.log(wick instanceof BugEngineer);
+        // 无法直接创建
+        new BugEngineer();
+    </script>
+
+</body>
+
+</html>

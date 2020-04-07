@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function SuperType(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        function SubType(name, age) {
+            this.age = 20;  // 该属性被父类重写
+            SuperType.call(this, name, age);
+        }
+        var sub = new SubType("Wick", 18);
+        console.log(sub)
+    </script>
+    
+</body>
+</html>

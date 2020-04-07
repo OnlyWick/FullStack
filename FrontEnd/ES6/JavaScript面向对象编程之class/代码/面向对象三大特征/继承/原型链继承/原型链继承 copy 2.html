@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function SuperType() {
+            this.colors = ["red", "blue", "yellow"];
+        }
+        function SubType() {
+        }
+        SubType.prototype = new SuperType();
+        var sub1 = new SubType();
+        sub1.colors.push("black");
+        console.log(sub1.colors);
+        var sub2 = new SubType();
+        console.log(sub2.colors);
+    </script>
+
+
+</body>
+
+</html>

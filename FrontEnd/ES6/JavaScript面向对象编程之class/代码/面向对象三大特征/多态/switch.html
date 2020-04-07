@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function liaomei() {
+            var length = arguments.length;
+            switch (length) {
+                case 0:
+                    return "直男";
+                case 1:
+                    return "还不错";
+                case 2:
+                    return "还可以";
+                case 3:
+                    return "有点渣";
+                case 4:
+                    return "渣男";
+            }
+        }
+        console.log(liaomei());
+        console.log(liaomei(1));
+        console.log(liaomei(1, 2));
+        console.log(liaomei(1, 2, 3));
+        console.log(liaomei(1, 2, 3, 4));
+    </script>
+
+
+</body>
+
+</html>

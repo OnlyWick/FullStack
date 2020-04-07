@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class Person {
+
+            length = 10;
+            constructor(name, weight) {
+                this.name = name;
+                this.weight = weight;
+            }
+            loseWeight() {
+                this._exercise();
+                console.log(`啊,我从${this.weight + this.length}斤瘦到${this.weight}斤了`);
+            }
+            _exercise() {
+                for(let i = 1; i <= this.length; i ++) {
+                    this.weight --;
+                }
+            }
+        }
+        const p1 = new Person("Wick", 135);
+        p1.loseWeight();
+        // 只是一个约定，要用当然还是可以用的
+        p1._exercise();
+        p1.loseWeight();
+    </script>
+
+
+</body>
+</html>

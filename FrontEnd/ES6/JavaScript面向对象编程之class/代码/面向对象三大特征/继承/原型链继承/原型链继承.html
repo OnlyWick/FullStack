@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function SuperType() {
+            this.property = true;
+        }
+        SuperType.prototype.getSuperValue = function() {
+            return this.property;
+        }
+        function SubType() {
+            this.subproperty = false;
+        }
+        // 创建 SuperType 实例
+        var superType = new SuperType();
+        console.log("SuperType实例", superType);
+        // 改变 SubType 的原型指向
+        SubType.prototype = superType;
+        // 添加 getSubValue 方法，相当于是在 SuperType 实例上添加方法
+        SubType.prototype.getSubValue = function() {
+            return this.subproperty;
+        }
+        var subType = new SubType();
+        console.log("SubType实例", subType);
+    </script>
+
+
+</body>
+</html>

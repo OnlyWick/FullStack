@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class BugEngineer {
+            writeBug() {
+                console.log("只会写Bug")
+            }
+        }
+        class Engineer extends BugEngineer {
+            writeBug() {
+                console.log("努力学习，少写Bug")
+            }
+        }
+        new Engineer().writeBug();
+    </script>
+
+
+</body>
+</html>

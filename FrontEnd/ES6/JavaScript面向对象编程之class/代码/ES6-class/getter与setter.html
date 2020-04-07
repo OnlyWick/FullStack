@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Person {
+            constructor(name, sex, hobby) {
+                this.name = name;
+                this.sex = sex;
+                this.hobby = hobby;
+            }
+            get name() {
+                console.log("取值函数运行啦")
+                return this._name;
+            }
+            set name(value) {
+                console.log("存值函数运行啦", value)
+                this._name = value;
+            }
+            say() {
+                console.log("我叫" + this.name + ", 是个" + this.sex + "生，我就喜欢" + this.hobby);
+            }
+        }
+        const p1 = new Person("Wick", "男", "看小姐姐");
+        p1.say();
+        console.log(p1)
+    </script>
+
+
+</body>
+
+</html>

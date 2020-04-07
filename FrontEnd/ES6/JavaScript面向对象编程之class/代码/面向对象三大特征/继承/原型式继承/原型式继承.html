@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var person = {
+            name: "Wick",
+            friends: ["doubi", "xiaoming", "xiaohong"]
+        }
+        function createObject(o) {
+            function F() {}
+            // 以 o 对象为基础，建立原型
+            F.prototype = o;
+            return new F();
+        }
+        var p1 = createObject(person);
+        console.log(p1.name);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 父类
+        class BugEngineer {
+            constructor() {
+                this.x = 456;
+            }
+        }
+        // 添加属性
+        BugEngineer.prototype.x = "除了写Bug，什么都不会"
+        // 子类
+        class Engineer extends BugEngineer {
+            constructor() {
+                super();
+                this.x = 10086; // 对Engineer实例赋值
+                console.log(this.x);
+                // 使用super对象进行赋值,最终会赋到Engineer实例上
+                super.x = 123;
+                console.log(this.x);    // 读取Engineer实例的值
+                // 读取父类BugEngineer原型对象上的属性，因为不存在，所以为undefined
+                console.log(super.x)    
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Pig {
+            constructor(name) {
+                this.name = name;
+            }
+            eat = () => {
+                console.log(this)
+                console.log(`${this.name}开始恰饭`);
+            }
+
+        }
+        const pig1 = new Pig("肥猪一号");
+        for (const key in pig1) {
+            console.log(key)
+        }
+    </script>
+
+</body>
+
+</html>

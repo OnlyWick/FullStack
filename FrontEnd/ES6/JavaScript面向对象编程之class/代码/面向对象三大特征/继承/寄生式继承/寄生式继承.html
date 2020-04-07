@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var person = {
+            name: "Wick",
+            friends: ["xiaoming", "xiaobai", "xiaohong"]
+        }
+        function createObject(origin) {
+            var clone = Object.create(origin);
+            clone.sayHi = function () {
+                console.log("Hi~");
+            }
+            return clone;
+        }
+        var p1 = createObject(person);
+        var p2 = createObject(person);
+        p1.friends.push("you");
+        console.log(p1.sayHi === p2.sayHi);
+        console.log(p2.friends);
+    </script>
+
+
+</body>
+
+</html>

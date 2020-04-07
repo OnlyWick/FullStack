@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function SuperType() {
+            this.property = true;
+        }
+        SuperType.prototype.getSuperValue = function () {
+            return this.property;
+        }
+        function SubType() {
+            this.subproperty = false;
+        }
+        var superType = new SuperType();
+        console.log("SuperType实例", superType);
+        
+        SubType.prototype = superType;
+
+        SubType.prototype = {
+            getSubValue: function () {
+                return this.subproperty;
+            },
+            someMethod: function () {
+                // somecode
+            }
+        }
+
+        var subType = new SubType();
+        console.log("SubType实例", subType);
+    </script>
+
+
+</body>
+
+</html>

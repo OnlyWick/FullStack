@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const exercise = Symbol("exercise");
+
+        class Person {
+            length = 10;
+            constructor(name, weight) {
+                this.name = name;
+                this.weight = weight;
+            }
+            loseWeight() {
+                this[exercise]();
+                console.log(`啊,我从${this.weight + this.length}斤瘦到${this.weight}斤了`);
+            }
+            [exercise]() {
+                console.log("开始锻炼")
+                for(let i = 0; i < this.length; i ++) {
+                    this.weight --;
+                }
+            }
+        }
+        const p1 = new Person("Wick", 135);
+        p1.loseWeight();
+        let reflect = Reflect.ownKeys(Person.prototype);
+        console.log(reflect);
+        let exerciseCopy = reflect[2];
+        // 开始锻炼
+        p1[exercise]();
+    </script>
+
+</body>
+
+</html>

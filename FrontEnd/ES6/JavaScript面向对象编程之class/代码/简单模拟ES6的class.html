@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        let BugEngineer = (function () {
+            "use strict";
+            // 使用const，防止修改和重复声明
+            const BugEngineer = function (name) {
+                // 必须new
+                if (typeof new.target === "undefined") {
+                    throw new Error("请使用new关键字");
+                }
+                this.name = name;
+            }
+            Object.defineProperties(BugEngineer.prototype, {
+                writeBug: {
+                    value: function () {
+                        // 不能new
+                        if (typeof new.target !== "undefined") {
+                            throw new Error("不能使用new关键字调用该方法");
+                        }
+                        console.log(`${this.name}开始写Bug`)
+                    },
+                    // 不可枚举
+                    enumerable: false,
+                    
+                    writable: true,
+                    configurable: true,
+                }
+            })
+            // 返回函数
+            return BugEngineer;
+        })();
+        const demo = new BugEngineer("Wick");
+        demo.writeBug();
+        console.log(demo)
+        for (const key in demo) {
+            console.log(key)
+        }
+    </script>
+
+
+
+</body>
+
+</html>

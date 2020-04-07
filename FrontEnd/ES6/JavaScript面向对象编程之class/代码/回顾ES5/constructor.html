@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function Person(name, sex, hobby) {
+            this.name = name;
+            this.sex = sex;
+            this.hobby = hobby;
+        }
+
+        Person.prototype.say = function () {
+            console.log("我叫" + this.name + ", 是个" + this.sex + "生，我就喜欢" + this.hobby);
+        }
+        var p1 = new Person("Wick", "男", "写Bug");
+        console.log(p1)
+        p1.say();
+        for (const key in p1) {
+            console.log(key)
+        }
+    </script>
+
+</body>
+
+</html>

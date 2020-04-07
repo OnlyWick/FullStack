@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function SuperType() {
+            // 基本类型
+            this.demo = 123;
+        }
+        function SubType() {
+        }
+        SubType.prototype = new SuperType();
+        var sub1 = new SubType();
+        console.log(sub1.demo); // 找到原型上的demo
+        sub1.demo = 456; // 相当于直接写在sub1上
+        console.log(sub1.demo);
+        var sub2 = new SubType();
+        console.log(sub2.demo); // 一样时找的原型上的demo
+        sub1.__proto__.demo = 10086;  // 修改原型上的demo
+        console.log(sub1);  // 由于前面对sub1添加了demo属性，所以并不会找原型上的demo
+        console.log(sub2.demo);
+    </script>
+
+
+</body>
+
+</html>

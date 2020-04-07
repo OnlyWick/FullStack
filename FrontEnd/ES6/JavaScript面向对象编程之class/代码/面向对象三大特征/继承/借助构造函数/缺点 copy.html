@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function SuperType(name) {
+            this.name = name;
+        }
+        SuperType.prototype.sayHi = function() {
+            console.log("Hi");
+        }
+        function SubType(name) {
+            SuperType.call(this, name);
+        }
+        var sub1 = new SubType("Wick");
+        // 无法找到该方法
+        console.log(sub1.sayHi);
+    </script>
+    
+</body>
+</html>
